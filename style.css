@@ -108,13 +108,13 @@ a:hover { opacity: 0.8; }
 
 .hero__client-logo {
   margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
 }
 
 .hero__client-logo img {
   height: 48px;
   width: auto;
-  display: inline-block;
-  margin: 0 auto;
 }
 
 .hero__label {
@@ -591,12 +591,22 @@ a:hover { opacity: 0.8; }
     font-size: 12px;
   }
 
+  .asset-row__content {
+    width: 100%;
+  }
+
   .asset-row__single-link {
     max-width: 100%;
+    overflow: hidden;
   }
 
   .asset-row__single-link a {
     font-size: 12px;
+  }
+
+  .asset-link {
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .copy-btn {

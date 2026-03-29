@@ -1,0 +1,86 @@
+{
+  "clientName": "Cudio",
+  "projectType": "Project Assets",
+  "slug": "cudio",
+  "lastUpdated": "2026-03-29",
+  "note": "When viewing funnel pages please ensure you view them via the Webflow staging link. This is because we have split test software set up, and we want to keep the data as accurate as possible by filtering out internal page views.",
+  "sections": [
+    {
+      "heading": "Funnel URLs",
+      "type": "funnel",
+      "rows": [
+        {
+          "label": "Landing Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.cudio.com/", "tag": "Live" },
+            { "url": "https://cudio.webflow.io/", "tag": "Staging" }
+          ]
+        },
+        {
+          "label": "Booking Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.cudio.com/booking", "tag": "Live" },
+            { "url": "https://cudio.webflow.io/booking", "tag": "Staging" }
+          ]
+        },
+        {
+          "label": "Congrats Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.cudio.com/congrats", "tag": "Live" },
+            { "url": "https://cudio.webflow.io/congrats", "tag": "Staging" }
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Tracking & Analytics",
+      "type": "links",
+      "rows": [
+        {
+          "label": "Google Analytics",
+          "note": null,
+          "url": "https://analytics.google.com/analytics/web/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fabout%2Fanalytics%2F#/a282965467p404082865/admin/streams/table/"
+        },
+        {
+          "label": "Google Tag Manager",
+          "note": null,
+          "url": "https://tagmanager.google.com/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fabout%2Ftag-manager%2F#/container/accounts/6189318268/containers/244715223/workspaces/3"
+        },
+        {
+          "label": "Microsoft Clarity",
+          "note": null,
+          "url": "https://clarity.microsoft.com/projects/view/vne1afnhwm/gettingstarted"
+        },
+        {
+          "label": "Convert.com",
+          "note": null,
+          "url": "https://app.convert.com/accounts/10016860/projects/10019134/experiences"
+        },
+        {
+          "label": "Webflow",
+          "note": null,
+          "url": "https://webflow.com/dashboard?workspace=gordons-workspace-161759"
+        }
+      ]
+    },
+    {
+      "heading": "Google Analytics Events",
+      "type": "details",
+      "rows": [
+        {
+          "label": "LPL_form_submitted (opt-in form submission)",
+          "note": null,
+          "value": "Trigger: LPL - Form Submitted | Page Path contains \"booking\""
+        },
+        {
+          "label": "LPL_meeting_scheduled (call booked)",
+          "note": null,
+          "value": "Trigger: LPL - Meeting Scheduled | Page Path contains \"congrats\""
+        }
+      ]
+    }
+  ]
+}

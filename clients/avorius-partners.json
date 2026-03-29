@@ -1,0 +1,101 @@
+{
+  "clientName": "Avorius Partners",
+  "projectType": "CRO Program Assets",
+  "slug": "avorius-partners",
+  "lastUpdated": "2026-03-29",
+  "note": "When viewing funnel pages please ensure you view them via the Webflow staging link. This is because we have split test software set up, and we want to keep the data as accurate as possible by filtering out internal page views.",
+  "sections": [
+    {
+      "heading": "Funnel URLs",
+      "type": "funnel",
+      "rows": [
+        {
+          "label": "Landing Page",
+          "note": null,
+          "links": [
+            { "url": "https://www.avoriuspartners.com/outbound-launch-workshop", "tag": "Live" },
+            { "url": "https://avorius-partners-devflow.webflow.io/outbound-launch-workshop", "tag": "Staging" }
+          ]
+        },
+        {
+          "label": "Booking Page",
+          "note": null,
+          "links": [
+            { "url": "https://www.avoriuspartners.com/workshop-booking", "tag": "Live" },
+            { "url": "https://avorius-partners-devflow.webflow.io/workshop-booking", "tag": "Staging" }
+          ]
+        },
+        {
+          "label": "Success Page",
+          "note": null,
+          "links": [
+            { "url": "https://www.avoriuspartners.com/workshop-success", "tag": "Live" },
+            { "url": "https://avorius-partners-devflow.webflow.io/workshop-success", "tag": "Staging" }
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Tracking & Analytics",
+      "type": "links",
+      "rows": [
+        {
+          "label": "Google Analytics",
+          "note": null,
+          "url": "https://analytics.google.com/analytics/web/?authuser=0#/a369858268p506814401/reports/intelligenthome"
+        },
+        {
+          "label": "Google Tag Manager",
+          "note": null,
+          "url": "https://tagmanager.google.com/#/container/accounts/6315037411/containers/231090823/workspaces/4"
+        },
+        {
+          "label": "Microsoft Clarity",
+          "note": null,
+          "url": "https://clarity.microsoft.com/projects/view/vug1iyihjr/gettingstarted"
+        },
+        {
+          "label": "Convert.com",
+          "note": null,
+          "url": "https://app.convert.com/accounts/10016860/projects/10019277/experiences"
+        },
+        {
+          "label": "Fillout Form",
+          "note": null,
+          "url": "https://build.fillout.com/home"
+        },
+        {
+          "label": "Performance Tracker Spreadsheet",
+          "note": null,
+          "url": "https://docs.google.com/spreadsheets/d/1ORh0xXIPBmIqIhs1sIjLvdsQKUYmSavUffpTuZyJsSo/edit?pli=1&gid=0#gid=0"
+        },
+        {
+          "label": "Webflow",
+          "note": null,
+          "url": "https://webflow.com/dashboard/sites/avorius-partners-devflow/general"
+        },
+        {
+          "label": "Meta Ads Manager",
+          "note": null,
+          "url": "https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=1446709373561592&business_id=728234814413636&global_scope_id=728234814413636"
+        }
+      ]
+    },
+    {
+      "heading": "Meta Ads Custom Conversions",
+      "type": "links",
+      "rows": [
+        {
+          "label": "LPL - Workshop Funnel - Lead (Multi-step form submission)",
+          "note": null,
+          "url": "https://eventsmanager.facebook.com/events_manager2/custom_conversions/910003108451773?business_id=728234814413636&act=1446709373561592&nav_source=ads_ecosystem_nav"
+        },
+        {
+          "label": "LPL - Workshop Funnel - Schedule (Calendly meeting booked)",
+          "note": null,
+          "url": "https://eventsmanager.facebook.com/events_manager2/custom_conversions/910003108451773?business_id=728234814413636&act=1446709373561592&nav_source=ads_ecosystem_nav"
+        }
+      ]
+    }
+  ]
+}

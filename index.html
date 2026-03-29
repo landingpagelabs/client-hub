@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Hub — Landing Page Labs</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Custom Fonts from Bunny CDN -->
+  <style>
+    @font-face {
+      font-family: 'F37 Sonic';
+      src: url('https://landing-page-labs.b-cdn.net/F37%20Sonic/subset-F37SonicTrial-ExtraBoldItalic.woff2') format('woff2');
+      font-weight: 800;
+      font-style: italic;
+      font-display: swap;
+    }
+  </style>
+
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <!-- Loading state -->
+  <div id="loading" class="loading">
+    <div class="loading__spinner"></div>
+  </div>
+
+  <!-- Error state -->
+  <div id="error" class="error" style="display:none;">
+    <h1 class="error__title">Project Not Found</h1>
+    <p class="error__text">The project hub you're looking for doesn't exist or may have been moved.</p>
+    <a href="https://www.landingpagelabs.co" class="error__link">Go to Landing Page Labs</a>
+  </div>
+
+  <!-- Main content (hidden until rendered) -->
+  <div id="hubContent" style="display:none;">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header__inner">
+        <a href="https://www.landingpagelabs.co" class="header__logo">
+          <img src="https://landing-page-labs.b-cdn.net/Proposal-LPLabsLogo.png" alt="Landing Page Labs" />
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <p class="hero__label" id="heroLabel"></p>
+      <h1 class="hero__title" id="heroTitle"></h1>
+      <p class="hero__updated" id="heroUpdated"></p>
+    </section>
+
+    <!-- Note Box -->
+    <section class="note" id="noteSection">
+      <div class="note__inner">
+        <div class="note__box">
+          <p class="note__text"><strong>Please Note:</strong> <span id="noteText"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="toc" id="tocSection">
+      <div class="toc__inner">
+        <div class="toc__box">
+          <h2 class="toc__heading">Contents</h2>
+          <ul class="toc__list" id="tocList"></ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sections -->
+    <main class="sections" id="sectionsContainer"></main>
+
+    <!-- Footer -->
+    <footer class="hub-footer">
+      <div class="hub-footer__inner">
+        <p class="hub-footer__text">Questions? Email Tyce or <a href="https://www.landingpagelabs.co/meet-with-tyce">book a meeting</a> directly.</p>
+        <img src="https://landing-page-labs.b-cdn.net/Proposal-LPLabsLogo.png" alt="Landing Page Labs" class="hub-footer__logo" />
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="/render.js"></script>
+</body>
+</html>

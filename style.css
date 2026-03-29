@@ -300,8 +300,11 @@ a:hover { opacity: 0.8; }
 .asset-link__url {
   font-size: 14px;
   color: #0000FF;
-  word-break: break-all;
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .asset-link__url:hover {
@@ -312,25 +315,28 @@ a:hover { opacity: 0.8; }
 .copy-btn {
   background: none;
   border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 4px 8px;
-  font-size: 11px;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
   font-weight: 600;
   color: #666;
   cursor: pointer;
   flex-shrink: 0;
   transition: all 0.15s ease;
   font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .copy-btn:hover {
   border-color: #999;
   color: #333;
+  background: #fafafa;
 }
 
 .copy-btn--copied {
   border-color: #2E7D32;
   color: #2E7D32;
+  background: #E8F5E9;
 }
 
 /* ---------- Single Link Row ---------- */
@@ -343,8 +349,11 @@ a:hover { opacity: 0.8; }
 .asset-row__single-link a {
   font-size: 14px;
   color: #0000FF;
-  word-break: break-all;
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .asset-row__single-link a:hover {
@@ -356,6 +365,10 @@ a:hover { opacity: 0.8; }
   font-size: 14px;
   color: #444;
   line-height: 1.6;
+  background: #F8F8F8;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border-left: 3px solid #ddd;
 }
 
 /* ---------- Row Note ---------- */
@@ -426,13 +439,40 @@ a:hover { opacity: 0.8; }
     padding: 24px 20px;
   }
 
+  .hub-section__heading {
+    font-size: 20px;
+  }
+
   .asset-row {
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
 
   .asset-row__label {
     min-width: unset;
+    font-size: 14px;
+  }
+
+  .asset-link {
+    gap: 6px;
+  }
+
+  .asset-link__url {
+    font-size: 13px;
+  }
+
+  .asset-row__single-link a {
+    font-size: 13px;
+  }
+
+  .copy-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .asset-row__value {
+    font-size: 13px;
+    padding: 8px 12px;
   }
 
   .hub-footer {

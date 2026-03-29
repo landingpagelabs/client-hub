@@ -35,10 +35,26 @@
     errorEl.style.display = 'flex';
   }
 
+  /* Strip protocol, query strings, and trailing slashes for display */
+  function cleanUrl(url) {
+    try {
+      var u = new URL(url);
+      var display = u.hostname + u.pathname;
+      /* Remove trailing slash unless it's the only path */
+      if (display.length > 1 && display.endsWith('/')) {
+        display = display.slice(0, -1);
+      }
+      return display;
+    } catch (e) {
+      return url;
+    }
+  }
+
   function createCopyButton(text) {
     var btn = document.createElement('button');
     btn.className = 'copy-btn';
     btn.textContent = 'Copy';
+    btn.setAttribute('title', 'Copy full URL');
     btn.addEventListener('click', function () {
       navigator.clipboard.writeText(text).then(function () {
         btn.textContent = 'Copied';
@@ -140,7 +156,8 @@
             a.href = link.url;
             a.target = '_blank';
             a.rel = 'noopener';
-            a.textContent = link.url;
+            a.textContent = cleanUrl(link.url);
+            a.title = link.url;
             linkRow.appendChild(a);
 
             linkRow.appendChild(createCopyButton(link.url));
@@ -156,7 +173,8 @@
           a.href = row.url;
           a.target = '_blank';
           a.rel = 'noopener';
-          a.textContent = row.url;
+          a.textContent = cleanUrl(row.url);
+          a.title = row.url;
           linkWrap.appendChild(a);
 
           linkWrap.appendChild(createCopyButton(row.url));

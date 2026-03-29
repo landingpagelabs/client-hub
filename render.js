@@ -87,15 +87,6 @@
     /* Page title */
     document.title = d.projectType + ' — ' + d.clientName + ' — Landing Page Labs';
 
-    /* Client logo */
-    if (d.clientLogo) {
-      var logoWrap = document.getElementById('heroClientLogo');
-      var logoImg = document.getElementById('heroClientLogoImg');
-      logoImg.src = d.clientLogo;
-      logoImg.alt = d.clientName;
-      logoWrap.style.display = 'block';
-    }
-
     /* Hero */
     document.getElementById('heroLabel').textContent = d.projectType;
     document.getElementById('heroTitle').textContent = d.clientName;

@@ -102,7 +102,7 @@ a:hover { opacity: 0.8; }
 /* ---------- Hero ---------- */
 .hero {
   background: #fff;
-  padding: 48px 24px 32px;
+  padding: 48px 24px 36px;
   text-align: center;
 }
 
@@ -151,21 +151,20 @@ a:hover { opacity: 0.8; }
 
 /* ---------- Note Box ---------- */
 .note {
-  background: #fff;
-  padding: 0 24px 32px;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 12px 24px 0;
 }
 
 .note__inner {
-  max-width: 880px;
-  margin: 0 auto;
+  max-width: none;
 }
 
 .note__box {
   background: #FFFDF5;
-  border: 1px solid #E8E0C8;
-  border-left: 4px solid #D4A843;
-  border-radius: 6px;
-  padding: 20px 24px;
+  border: 2px dashed #E0C97F;
+  border-radius: 12px;
+  padding: 24px 28px;
 }
 
 .note__text {
@@ -261,13 +260,13 @@ a:hover { opacity: 0.8; }
 
 /* ---------- Open All Button ---------- */
 .open-all-btn {
-  background: #EEF0FF;
-  border: 1px solid #C8CCFF;
+  background: #F5F5F5;
+  border: 1px solid #E0E0E0;
   border-radius: 6px;
   padding: 8px 16px;
   font-size: 12px;
   font-weight: 600;
-  color: #0000FF;
+  color: #555;
   cursor: pointer;
   font-family: inherit;
   transition: all 0.15s ease;
@@ -276,8 +275,9 @@ a:hover { opacity: 0.8; }
 }
 
 .open-all-btn:hover {
-  background: #DDE0FF;
-  border-color: #9BA0FF;
+  background: #EBEBEB;
+  border-color: #CCC;
+  color: #333;
 }
 
 /* ---------- Asset Row (shared base) ---------- */
@@ -536,11 +536,17 @@ a:hover { opacity: 0.8; }
   }
 
   .note {
-    padding: 0 16px 24px;
+    padding: 12px 16px 0;
   }
 
   .note__box {
     padding: 16px 20px;
+  }
+
+  .open-all-btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px 16px;
   }
 
   .toc {
@@ -623,12 +629,6 @@ a:hover { opacity: 0.8; }
   .asset-row__value {
     font-size: 12px;
     padding: 8px 10px;
-  }
-
-  .open-all-btn {
-    width: 100%;
-    text-align: center;
-    padding: 10px 16px;
   }
 
   .review-cta {

@@ -262,6 +262,7 @@ a:hover { opacity: 0.8; }
 .asset-row__content {
   flex: 1;
   min-width: 0;
+  overflow: hidden;
 }
 
 /* ---------- URL Links ---------- */
@@ -344,6 +345,8 @@ a:hover { opacity: 0.8; }
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .asset-row__single-link a {

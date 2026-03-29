@@ -3,6 +3,7 @@
   "projectType": "Client Hub",
   "slug": "avorius-partners",
   "clientLogo": "https://landing-page-labs.b-cdn.net/client-hub/avorius-logo.png",
+  "pin": "avorius2026",
   "lastUpdated": "2026-03-29",
   "note": "When viewing funnel pages please ensure you view them via the Webflow staging link. This is because we have split test software set up, and we want to keep the data as accurate as possible by filtering out internal page views.",
   "sections": [

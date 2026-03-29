@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Client Hub — Landing Page Labs</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="https://landing-page-labs.b-cdn.net/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'F37 Sonic';
+      src: url('https://landing-page-labs.b-cdn.net/F37%20Sonic/subset-F37SonicTrial-ExtraBoldItalic.woff2') format('woff2');
+      font-weight: 800; font-style: italic; font-display: swap;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f5f5f5; color: #222; }
+    a { color: #0000FF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .admin { max-width: 600px; margin: 0 auto; padding: 60px 24px; }
+    .admin__logo { text-align: center; margin-bottom: 40px; }
+    .admin__logo img { height: 28px; display: inline-block; }
+    .admin__title {
+      font-family: 'F37 Sonic', sans-serif; font-weight: 800; font-style: italic;
+      text-transform: uppercase; font-size: 28px; text-align: center; margin-bottom: 32px;
+    }
+
+    /* PIN gate */
+    .admin-pin { text-align: center; margin-bottom: 32px; }
+    .admin-pin__wrap { display: flex; gap: 8px; max-width: 300px; margin: 0 auto; }
+    .admin-pin__input {
+      flex: 1; padding: 12px 16px; font-size: 16px; font-family: inherit;
+      border: 1px solid #ddd; border-radius: 8px; outline: none; text-align: center; letter-spacing: 0.15em;
+    }
+    .admin-pin__input:focus { border-color: #0000FF; }
+    .admin-pin__btn {
+      padding: 12px 20px; font-size: 14px; font-weight: 600; font-family: inherit;
+      background: #222; color: #fff; border: none; border-radius: 8px; cursor: pointer;
+    }
+    .admin-pin__btn:hover { background: #000; }
+    .admin-pin__error { color: #D32F2F; font-size: 13px; margin-top: 12px; display: none; }
+
+    /* Client list */
+    .client-list { display: none; }
+    .client-card {
+      background: #fff; border-radius: 12px; padding: 24px 28px; margin-bottom: 12px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .client-card__name { font-size: 16px; font-weight: 600; }
+    .client-card__meta { font-size: 13px; color: #888; margin-top: 4px; }
+    .client-card__pin { font-size: 12px; color: #aaa; font-family: monospace; margin-top: 4px; }
+    .client-card__link {
+      font-size: 13px; font-weight: 600; color: #0000FF; flex-shrink: 0;
+      padding: 8px 16px; border: 1px solid #ddd; border-radius: 6px;
+    }
+    .client-card__link:hover { background: #EEF0FF; border-color: #C8CCFF; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="admin">
+    <div class="admin__logo">
+      <img src="https://landing-page-labs.b-cdn.net/Proposal-LPLabsLogo.png" alt="Landing Page Labs" />
+    </div>
+    <h1 class="admin__title">Client Hub Admin</h1>
+
+    <div class="admin-pin" id="adminPin">
+      <div class="admin-pin__wrap">
+        <input type="password" id="adminPinInput" class="admin-pin__input" placeholder="Admin PIN" autocomplete="off" />
+        <button id="adminPinBtn" class="admin-pin__btn">Access</button>
+      </div>
+      <p id="adminPinError" class="admin-pin__error">Incorrect PIN.</p>
+    </div>
+
+    <div class="client-list" id="clientList"></div>
+  </div>
+
+  <script>
+    (async function () {
+      var ADMIN_PIN = 'lpl-admin-2026';
+      var clients;
+
+      try {
+        var res = await fetch('/clients/manifest.json');
+        if (!res.ok) throw new Error();
+        clients = await res.json();
+      } catch (e) {
+        document.querySelector('.admin__title').textContent = 'Error loading clients';
+        return;
+      }
+
+      var savedPin = localStorage.getItem('lpl_hub_admin_pin');
+      if (savedPin === ADMIN_PIN) {
+        showClients();
+      }
+
+      document.getElementById('adminPinBtn').addEventListener('click', attemptPin);
+      document.getElementById('adminPinInput').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') attemptPin();
+      });
+      document.getElementById('adminPinInput').focus();
+
+      function attemptPin() {
+        var val = document.getElementById('adminPinInput').value.trim();
+        if (val === ADMIN_PIN) {
+          localStorage.setItem('lpl_hub_admin_pin', val);
+          showClients();
+        } else {
+          document.getElementById('adminPinError').style.display = 'block';
+          document.getElementById('adminPinInput').value = '';
+          document.getElementById('adminPinInput').focus();
+        }
+      }
+
+      function showClients() {
+        document.getElementById('adminPin').style.display = 'none';
+        var list = document.getElementById('clientList');
+        list.style.display = 'block';
+
+        clients.forEach(function (c) {
+          var card = document.createElement('div');
+          card.className = 'client-card';
+
+          var info = document.createElement('div');
+          var name = document.createElement('div');
+          name.className = 'client-card__name';
+          name.textContent = c.clientName;
+          info.appendChild(name);
+
+          var meta = document.createElement('div');
+          meta.className = 'client-card__meta';
+          meta.textContent = 'Updated: ' + c.lastUpdated;
+          info.appendChild(meta);
+
+          var pin = document.createElement('div');
+          pin.className = 'client-card__pin';
+          pin.textContent = 'PIN: ' + c.pin;
+          info.appendChild(pin);
+
+          card.appendChild(info);
+
+          var link = document.createElement('a');
+          link.className = 'client-card__link';
+          link.href = '/' + c.slug;
+          link.target = '_blank';
+          link.textContent = 'Open Hub';
+          card.appendChild(link);
+
+          list.appendChild(card);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

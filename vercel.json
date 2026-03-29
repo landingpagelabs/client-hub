@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/clients/:path*", "destination": "/clients/:path*" },
+    { "source": "/admin", "destination": "/admin.html" },
     { "source": "/:slug", "destination": "/index.html" }
   ]
 }

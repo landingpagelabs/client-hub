@@ -39,6 +39,23 @@
     <a href="https://www.landingpagelabs.co" class="error__link">Go to Landing Page Labs</a>
   </div>
 
+  <!-- PIN gate -->
+  <div id="pinGate" class="pin-gate" style="display:none;">
+    <div class="pin-gate__card">
+      <a href="https://www.landingpagelabs.co" class="pin-gate__logo">
+        <img src="https://landing-page-labs.b-cdn.net/Proposal-LPLabsLogo.png" alt="Landing Page Labs" />
+      </a>
+      <h2 class="pin-gate__title">Client Hub</h2>
+      <p class="pin-gate__text">Enter your access PIN to view this page.</p>
+      <div class="pin-gate__input-wrap">
+        <input type="password" id="pinInput" class="pin-gate__input" placeholder="Enter PIN" maxlength="20" autocomplete="off" />
+        <button id="pinSubmit" class="pin-gate__btn">Access</button>
+      </div>
+      <p id="pinError" class="pin-gate__error" style="display:none;">Incorrect PIN. Please try again.</p>
+      <p class="pin-gate__help">Need help? <a href="mailto:tyce@landingpagelabs.co">Email Tyce</a></p>
+    </div>
+  </div>
+
   <!-- Main content (hidden until rendered) -->
   <div id="hubContent" style="display:none;">
 

@@ -6,12 +6,13 @@
   var loadingEl = document.getElementById('loading');
   var errorEl = document.getElementById('error');
   var contentEl = document.getElementById('hubContent');
+  var pinGateEl = document.getElementById('pinGate');
 
   /* ---------- Extract slug from URL ---------- */
   var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
   var slug = path.split('/').pop();
 
-  if (!slug) {
+  if (!slug || slug === 'admin') {
     showError();
     return;
   }
@@ -27,12 +28,52 @@
     return;
   }
 
-  /* ---------- Render ---------- */
-  render(data);
+  /* ---------- PIN gate ---------- */
+  if (data.pin) {
+    var storageKey = 'lpl_hub_pin_' + slug;
+    var savedPin = localStorage.getItem(storageKey);
+
+    if (savedPin === data.pin) {
+      render(data);
+    } else {
+      showPinGate(data, storageKey);
+    }
+  } else {
+    render(data);
+  }
 
   function showError() {
     loadingEl.style.display = 'none';
     errorEl.style.display = 'flex';
+  }
+
+  function showPinGate(d, storageKey) {
+    loadingEl.style.display = 'none';
+    pinGateEl.style.display = 'flex';
+
+    var pinInput = document.getElementById('pinInput');
+    var pinSubmit = document.getElementById('pinSubmit');
+    var pinError = document.getElementById('pinError');
+
+    function attemptPin() {
+      var entered = pinInput.value.trim();
+      if (entered === d.pin) {
+        localStorage.setItem(storageKey, entered);
+        pinGateEl.style.display = 'none';
+        render(d);
+      } else {
+        pinError.style.display = 'block';
+        pinInput.value = '';
+        pinInput.focus();
+      }
+    }
+
+    pinSubmit.addEventListener('click', attemptPin);
+    pinInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') attemptPin();
+    });
+
+    pinInput.focus();
   }
 
   /* Strip protocol, query strings, and trailing slashes for display */

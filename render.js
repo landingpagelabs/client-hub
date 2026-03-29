@@ -40,7 +40,6 @@
     try {
       var u = new URL(url);
       var display = u.hostname + u.pathname;
-      /* Remove trailing slash unless it's the only path */
       if (display.length > 1 && display.endsWith('/')) {
         display = display.slice(0, -1);
       }
@@ -76,6 +75,15 @@
     /* Page title */
     document.title = d.projectType + ' — ' + d.clientName + ' — Landing Page Labs';
 
+    /* Client logo */
+    if (d.clientLogo) {
+      var logoWrap = document.getElementById('heroClientLogo');
+      var logoImg = document.getElementById('heroClientLogoImg');
+      logoImg.src = d.clientLogo;
+      logoImg.alt = d.clientName;
+      logoWrap.style.display = 'block';
+    }
+
     /* Hero */
     document.getElementById('heroLabel').textContent = d.projectType;
     document.getElementById('heroTitle').textContent = d.clientName;
@@ -94,17 +102,20 @@
       document.getElementById('noteSection').style.display = 'none';
     }
 
-    /* Table of Contents */
+    /* Table of Contents — only show when 4+ sections */
     var tocList = document.getElementById('tocList');
-    d.sections.forEach(function (section) {
-      var li = document.createElement('li');
-      var a = document.createElement('a');
-      var id = slugify(section.heading);
-      a.href = '#' + id;
-      a.textContent = section.heading;
-      li.appendChild(a);
-      tocList.appendChild(li);
-    });
+    if (d.sections.length >= 4) {
+      document.getElementById('tocSection').style.display = 'block';
+      d.sections.forEach(function (section) {
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        var id = slugify(section.heading);
+        a.href = '#' + id;
+        a.textContent = section.heading;
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+    }
 
     /* Sections */
     var container = document.getElementById('sectionsContainer');
@@ -114,15 +125,46 @@
       card.id = slugify(section.heading);
 
       /* Section heading */
+      var headingRow = document.createElement('div');
+      headingRow.className = 'hub-section__header';
+
       var h2 = document.createElement('h2');
       h2.className = 'hub-section__heading';
       h2.textContent = section.heading;
-      card.appendChild(h2);
+      headingRow.appendChild(h2);
+
+      /* "Open All Live Pages" button for funnel sections */
+      if (section.type === 'funnel') {
+        var liveUrls = [];
+        section.rows.forEach(function (row) {
+          row.links.forEach(function (link) {
+            if (link.tag.toLowerCase() === 'live') {
+              liveUrls.push(link.url);
+            }
+          });
+        });
+        if (liveUrls.length > 1) {
+          var openAllBtn = document.createElement('button');
+          openAllBtn.className = 'open-all-btn';
+          openAllBtn.textContent = 'Open All Live Pages';
+          openAllBtn.addEventListener('click', function () {
+            liveUrls.forEach(function (url) {
+              window.open(url, '_blank', 'noopener');
+            });
+          });
+          headingRow.appendChild(openAllBtn);
+        }
+      }
+
+      card.appendChild(headingRow);
 
       /* Rows */
-      section.rows.forEach(function (row) {
+      section.rows.forEach(function (row, rowIdx) {
         var rowEl = document.createElement('div');
         rowEl.className = 'asset-row';
+        if (rowIdx % 2 === 1) {
+          rowEl.classList.add('asset-row--alt');
+        }
 
         /* Label */
         var label = document.createElement('div');
@@ -141,7 +183,6 @@
         content.className = 'asset-row__content';
 
         if (section.type === 'funnel') {
-          /* Funnel URLs: multiple tagged links */
           row.links.forEach(function (link) {
             var linkRow = document.createElement('div');
             linkRow.className = 'asset-link';
@@ -165,7 +206,6 @@
           });
 
         } else if (section.type === 'links') {
-          /* Single link rows */
           var linkWrap = document.createElement('div');
           linkWrap.className = 'asset-row__single-link';
 
@@ -181,11 +221,16 @@
           content.appendChild(linkWrap);
 
         } else if (section.type === 'details') {
-          /* Key-value text rows */
+          var valWrap = document.createElement('div');
+          valWrap.className = 'asset-row__detail';
+
           var val = document.createElement('p');
           val.className = 'asset-row__value';
           val.textContent = row.value;
-          content.appendChild(val);
+          valWrap.appendChild(val);
+
+          valWrap.appendChild(createCopyButton(row.value));
+          content.appendChild(valWrap);
         }
 
         rowEl.appendChild(content);

@@ -79,8 +79,16 @@
 
   <script>
     (async function () {
-      var ADMIN_PIN = 'lpl-admin-2026';
+      var ADMIN_PIN_HASH = '81163a648e4e66a9c22b0bbc4d19e486de4e98dc9ff2e3e4af523f785e811c79';
       var clients;
+
+      async function sha256(text) {
+        var encoder = new TextEncoder();
+        var data = encoder.encode(text);
+        var hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        var hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+      }
 
       try {
         var res = await fetch('/clients/manifest.json');
@@ -91,8 +99,8 @@
         return;
       }
 
-      var savedPin = localStorage.getItem('lpl_hub_admin_pin');
-      if (savedPin === ADMIN_PIN) {
+      var savedHash = localStorage.getItem('lpl_hub_admin_pin');
+      if (savedHash === ADMIN_PIN_HASH) {
         showClients();
       }
 
@@ -102,10 +110,12 @@
       });
       document.getElementById('adminPinInput').focus();
 
-      function attemptPin() {
+      async function attemptPin() {
         var val = document.getElementById('adminPinInput').value.trim();
-        if (val === ADMIN_PIN) {
-          localStorage.setItem('lpl_hub_admin_pin', val);
+        if (!val) return;
+        var hash = await sha256(val);
+        if (hash === ADMIN_PIN_HASH) {
+          localStorage.setItem('lpl_hub_admin_pin', hash);
           showClients();
         } else {
           document.getElementById('adminPinError').style.display = 'block';
@@ -133,11 +143,6 @@
           meta.className = 'client-card__meta';
           meta.textContent = 'Updated: ' + c.lastUpdated;
           info.appendChild(meta);
-
-          var pin = document.createElement('div');
-          pin.className = 'client-card__pin';
-          pin.textContent = 'PIN: ' + c.pin;
-          info.appendChild(pin);
 
           card.appendChild(info);
 

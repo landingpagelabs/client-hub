@@ -28,12 +28,21 @@
     return;
   }
 
-  /* ---------- PIN gate ---------- */
-  if (data.pin) {
-    var storageKey = 'lpl_hub_pin_' + slug;
-    var savedPin = localStorage.getItem(storageKey);
+  /* ---------- SHA-256 hash utility ---------- */
+  async function sha256(text) {
+    var encoder = new TextEncoder();
+    var data = encoder.encode(text);
+    var hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    var hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+  }
 
-    if (savedPin === data.pin) {
+  /* ---------- PIN gate ---------- */
+  if (data.pinHash) {
+    var storageKey = 'lpl_hub_pin_' + slug;
+    var savedHash = localStorage.getItem(storageKey);
+
+    if (savedHash === data.pinHash) {
       render(data);
     } else {
       showPinGate(data, storageKey);
@@ -55,10 +64,12 @@
     var pinSubmit = document.getElementById('pinSubmit');
     var pinError = document.getElementById('pinError');
 
-    function attemptPin() {
+    async function attemptPin() {
       var entered = pinInput.value.trim();
-      if (entered === d.pin) {
-        localStorage.setItem(storageKey, entered);
+      if (!entered) return;
+      var enteredHash = await sha256(entered);
+      if (enteredHash === d.pinHash) {
+        localStorage.setItem(storageKey, enteredHash);
         pinGateEl.style.display = 'none';
         render(d);
       } else {

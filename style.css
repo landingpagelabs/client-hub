@@ -151,8 +151,9 @@ a:hover { opacity: 0.8; }
 
 /* ---------- Note Box (inside hero) ---------- */
 .note {
-  max-width: 680px;
+  max-width: 880px;
   margin: 24px auto 0;
+  padding: 0 24px;
   text-align: left;
 }
 

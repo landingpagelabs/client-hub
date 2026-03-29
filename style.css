@@ -114,6 +114,7 @@ a:hover { opacity: 0.8; }
   height: 48px;
   width: auto;
   display: inline-block;
+  margin: 0 auto;
 }
 
 .hero__label {
@@ -588,6 +589,10 @@ a:hover { opacity: 0.8; }
 
   .asset-link__url {
     font-size: 12px;
+  }
+
+  .asset-row__single-link {
+    max-width: 100%;
   }
 
   .asset-row__single-link a {

@@ -49,11 +49,23 @@
     }
   }
 
+  /* Arrow button that opens a URL in a new tab */
+  function createOpenButton(url) {
+    var btn = document.createElement('a');
+    btn.className = 'open-btn';
+    btn.href = url;
+    btn.target = '_blank';
+    btn.rel = 'noopener';
+    btn.setAttribute('title', 'Open in new tab');
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 7.66667V11.6667C11 12.0203 10.8595 12.3594 10.6095 12.6095C10.3594 12.8595 10.0203 13 9.66667 13H2.33333C1.97971 13 1.64057 12.8595 1.39052 12.6095C1.14048 12.3594 1 12.0203 1 11.6667V4.33333C1 3.97971 1.14048 3.64057 1.39052 3.39052C1.64057 3.14048 1.97971 3 2.33333 3H6.33333M9 1H13M13 1V5M13 1L5.66667 8.33333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    return btn;
+  }
+
   function createCopyButton(text) {
     var btn = document.createElement('button');
     btn.className = 'copy-btn';
     btn.textContent = 'Copy';
-    btn.setAttribute('title', 'Copy full URL');
+    btn.setAttribute('title', 'Copy to clipboard');
     btn.addEventListener('click', function () {
       navigator.clipboard.writeText(text).then(function () {
         btn.textContent = 'Copied';
@@ -133,22 +145,22 @@
       h2.textContent = section.heading;
       headingRow.appendChild(h2);
 
-      /* "Open All Live Pages" button for funnel sections */
+      /* "Open All Staging Links" button for funnel sections */
       if (section.type === 'funnel') {
-        var liveUrls = [];
+        var stagingUrls = [];
         section.rows.forEach(function (row) {
           row.links.forEach(function (link) {
-            if (link.tag.toLowerCase() === 'live') {
-              liveUrls.push(link.url);
+            if (link.tag.toLowerCase() === 'staging') {
+              stagingUrls.push(link.url);
             }
           });
         });
-        if (liveUrls.length > 1) {
+        if (stagingUrls.length > 1) {
           var openAllBtn = document.createElement('button');
           openAllBtn.className = 'open-all-btn';
-          openAllBtn.textContent = 'Open All Live Pages';
+          openAllBtn.textContent = 'Open All Staging Links';
           openAllBtn.addEventListener('click', function () {
-            liveUrls.forEach(function (url) {
+            stagingUrls.forEach(function (url) {
               window.open(url, '_blank', 'noopener');
             });
           });
@@ -201,7 +213,7 @@
             a.title = link.url;
             linkRow.appendChild(a);
 
-            linkRow.appendChild(createCopyButton(link.url));
+            linkRow.appendChild(createOpenButton(link.url));
             content.appendChild(linkRow);
           });
 
@@ -217,7 +229,7 @@
           a.title = row.url;
           linkWrap.appendChild(a);
 
-          linkWrap.appendChild(createCopyButton(row.url));
+          linkWrap.appendChild(createOpenButton(row.url));
           content.appendChild(linkWrap);
 
         } else if (section.type === 'details') {

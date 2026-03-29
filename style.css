@@ -435,6 +435,67 @@ a:hover { opacity: 0.8; }
   font-style: italic;
 }
 
+/* ---------- Open Button (arrow icon) ---------- */
+.open-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  color: #888;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.open-btn:hover {
+  border-color: #0000FF;
+  color: #0000FF;
+  background: #EEF0FF;
+  opacity: 1;
+}
+
+/* ---------- Review CTA ---------- */
+.review-cta {
+  max-width: 880px;
+  margin: 16px auto 0;
+  padding: 0 24px;
+}
+
+.review-cta__inner {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 36px;
+  text-align: center;
+}
+
+.review-cta__text {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.review-cta__btn {
+  display: inline-block;
+  background: #0000FF;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.review-cta__btn:hover {
+  background: #0000CC;
+  opacity: 1;
+  color: #fff;
+}
+
 /* ---------- Footer ---------- */
 .hub-footer {
   text-align: center;
@@ -553,6 +614,19 @@ a:hover { opacity: 0.8; }
     width: 100%;
     text-align: center;
     padding: 10px 16px;
+  }
+
+  .review-cta {
+    padding: 0 16px;
+  }
+
+  .review-cta__inner {
+    padding: 24px 20px;
+  }
+
+  .review-cta__btn {
+    width: 100%;
+    text-align: center;
   }
 
   .hub-footer {

@@ -93,7 +93,7 @@
       var logoImg = document.getElementById('heroClientLogoImg');
       logoImg.src = d.clientLogo;
       logoImg.alt = d.clientName;
-      logoWrap.style.display = 'flex';
+      logoWrap.style.display = 'block';
     }
 
     /* Hero */

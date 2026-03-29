@@ -108,13 +108,13 @@ a:hover { opacity: 0.8; }
 
 .hero__client-logo {
   margin-bottom: 24px;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .hero__client-logo img {
   height: 48px;
   width: auto;
+  display: inline-block;
 }
 
 .hero__label {

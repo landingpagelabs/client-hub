@@ -149,22 +149,18 @@ a:hover { opacity: 0.8; }
   margin-top: 12px;
 }
 
-/* ---------- Note Box ---------- */
+/* ---------- Note Box (inside hero) ---------- */
 .note {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 12px 24px 0;
-}
-
-.note__inner {
-  max-width: none;
+  max-width: 680px;
+  margin: 24px auto 0;
+  text-align: left;
 }
 
 .note__box {
   background: #FFFDF5;
   border: 2px dashed #E0C97F;
-  border-radius: 12px;
-  padding: 24px 28px;
+  border-radius: 8px;
+  padding: 20px 24px;
 }
 
 .note__text {
@@ -536,7 +532,7 @@ a:hover { opacity: 0.8; }
   }
 
   .note {
-    padding: 12px 16px 0;
+    margin-top: 20px;
   }
 
   .note__box {

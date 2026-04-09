@@ -1,0 +1,87 @@
+{
+  "clientName": "CorFix",
+  "projectType": "Client Hub",
+  "slug": "corfix",
+  "pinHash": "0e543d519ee096d403744b76234a08686a98d6cfddcb30d80ddbd5341c51506d",
+  "lastUpdated": "2026-04-09",
+  "note": "Please visit the staging links when reviewing funnel pages. This keeps internal traffic out of Google Analytics and Clarity so the data stays clean.",
+  "sections": [
+    {
+      "heading": "Funnel URLs",
+      "type": "funnel",
+      "rows": [
+        {
+          "label": "Landing Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.corfix.com/", "tag": "Live" },
+            { "url": "https://corfix.webflow.io/", "tag": "Staging" }
+          ]
+        },
+        {
+          "label": "Booking Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.corfix.com/booking", "tag": "Live" },
+            { "url": "https://corfix.webflow.io/booking", "tag": "Staging" }
+          ]
+        },
+        {
+          "label": "Congrats Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.corfix.com/congrats", "tag": "Live" },
+            { "url": "https://corfix.webflow.io/congrats", "tag": "Staging" }
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Tracking & Analytics",
+      "type": "links",
+      "rows": [
+        {
+          "label": "Google Analytics",
+          "note": null,
+          "url": "https://analytics.google.com/analytics/web/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fabout%2Fanalytics%2F#/a191472072p530343255/reports/intelligenthome?params=_u..nav%3Dmaui"
+        },
+        {
+          "label": "Google Tag Manager",
+          "note": null,
+          "url": "https://tagmanager.google.com/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fabout%2Ftag-manager%2F#/container/accounts/6346776138/containers/247709839/workspaces/3"
+        },
+        {
+          "label": "Microsoft Clarity",
+          "note": null,
+          "url": "https://clarity.microsoft.com/projects/view/w32ikp16wk/dashboard"
+        },
+        {
+          "label": "Convert.com",
+          "note": "Not set up yet",
+          "url": "https://app.convert.com/"
+        },
+        {
+          "label": "Webflow",
+          "note": null,
+          "url": "https://webflow.com/dashboard?workspace=stefs-workspace-228ccb"
+        }
+      ]
+    },
+    {
+      "heading": "Google Analytics Events",
+      "type": "details",
+      "rows": [
+        {
+          "label": "lpl_form_submitted (opt-in form submission)",
+          "note": null,
+          "value": "Trigger: LPL - Form Submitted | Page Path contains \"booking\""
+        },
+        {
+          "label": "lpl_meeting_scheduled (call booked)",
+          "note": null,
+          "value": "Trigger: LPL - Meeting Scheduled | Page Path contains \"congrats\""
+        }
+      ]
+    }
+  ]
+}

@@ -18,5 +18,10 @@
     "clientName": "Kraken",
     "slug": "kraken",
     "lastUpdated": "2026-04-17"
+  },
+  {
+    "clientName": "Nudge AI",
+    "slug": "nudge-ai",
+    "lastUpdated": "2026-04-17"
   }
 ]

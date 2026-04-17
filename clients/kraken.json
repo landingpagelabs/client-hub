@@ -19,11 +19,11 @@
           ]
         },
         {
-          "label": "Form Page",
+          "label": "Get Started",
           "note": null,
           "links": [
-            { "url": "https://gokrakensocials.com/signup", "tag": "Live" },
-            { "url": "https://kraken-agency.webflow.io/signup", "tag": "Staging" }
+            { "url": "https://gokrakensocials.com/get-started", "tag": "Live" },
+            { "url": "https://kraken-agency.webflow.io/get-started", "tag": "Staging" }
           ]
         },
         {
@@ -64,16 +64,6 @@
           "label": "Webflow",
           "note": null,
           "url": "https://webflow.com/dashboard/sites/kraken-agency/general"
-        },
-        {
-          "label": "Microsoft Clarity",
-          "note": "Not set up yet",
-          "url": "https://clarity.microsoft.com/"
-        },
-        {
-          "label": "Convert.com",
-          "note": "Not set up yet",
-          "url": "https://app.convert.com/"
         }
       ]
     },
@@ -85,27 +75,6 @@
           "label": "lpl_payment_made (Stripe checkout complete)",
           "note": null,
           "value": "Trigger: LPL - Payment Made | Page Path contains \"congrats\""
-        }
-      ]
-    },
-    {
-      "heading": "Outstanding — Client Actions",
-      "type": "details",
-      "rows": [
-        {
-          "label": "Upgrade Webflow to CMS plan",
-          "note": null,
-          "value": "Required to add llms.txt and connect the custom domain. Upgrade link: https://webflow.com/dashboard/sites/kraken-agency/plans?ref=dash_custom_domain&tab=website_plans"
-        },
-        {
-          "label": "Connect custom domain (gokrakensocials.com)",
-          "note": null,
-          "value": "Once the CMS plan is live, connect the domain in Webflow. GTM will then start firing on the live site."
-        },
-        {
-          "label": "Authorise Stripe + Fillout integrations",
-          "note": null,
-          "value": "Approve both connections so form submissions and payments flow end-to-end."
         }
       ]
     }

@@ -279,12 +279,13 @@ a:hover { opacity: 0.8; }
 
 /* ---------- Table of Contents ---------- */
 .toc {
-  padding: 0 24px 8px;
+  padding: 12px 0 0;
 }
 
 .toc__inner {
   max-width: 880px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
 .toc__box {

@@ -1,0 +1,77 @@
+{
+  "clientName": "Nudge AI",
+  "projectType": "Client Hub",
+  "slug": "nudge-ai",
+  "pinHash": "e5a0c6de00d702933a7a5f8fe320b227e1cb549d577ad9c10d35f8d8feb55c95",
+  "lastUpdated": "2026-04-17",
+  "note": "While we're finalising the launch, please use the Webflow staging links to view funnel pages. The live domain (try.getnudgeai.com) will be live once the final build is pushed and DNS is pointed.",
+  "sections": [
+    {
+      "heading": "Funnel URLs",
+      "type": "funnel",
+      "rows": [
+        {
+          "label": "Landing Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.getnudgeai.com/", "tag": "Live" },
+            { "url": "https://nudge-ai-scribe.webflow.io/", "tag": "Staging" }
+          ]
+        },
+        {
+          "label": "Booking Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.getnudgeai.com/booking", "tag": "Live" },
+            { "url": "https://nudge-ai-scribe.webflow.io/booking", "tag": "Staging" }
+          ]
+        },
+        {
+          "label": "Congrats Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.getnudgeai.com/congrats", "tag": "Live" },
+            { "url": "https://nudge-ai-scribe.webflow.io/congrats", "tag": "Staging" }
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Tracking & Analytics",
+      "type": "links",
+      "rows": [
+        {
+          "label": "Google Analytics",
+          "note": null,
+          "url": "https://analytics.google.com/analytics/web/#/a308757414p533521148/reports/intelligenthome"
+        },
+        {
+          "label": "Google Tag Manager",
+          "note": null,
+          "url": "https://tagmanager.google.com/#/container/accounts/6226127736/containers/249688646/workspaces/2"
+        },
+        {
+          "label": "Microsoft Clarity",
+          "note": null,
+          "url": "https://clarity.microsoft.com/projects/view/wd0zvnunoy/gettingstarted"
+        },
+        {
+          "label": "Webflow",
+          "note": null,
+          "url": "https://webflow.com/dashboard/sites/nudge-ai-scribe/general"
+        }
+      ]
+    },
+    {
+      "heading": "Google Analytics Events",
+      "type": "details",
+      "rows": [
+        {
+          "label": "lpl_meeting_scheduled (call booked)",
+          "note": null,
+          "value": "Trigger: LPL - Meeting Scheduled | Page Path contains \"congrats\""
+        }
+      ]
+    }
+  ]
+}

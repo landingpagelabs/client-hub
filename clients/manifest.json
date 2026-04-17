@@ -13,5 +13,10 @@
     "clientName": "CorFix",
     "slug": "corfix",
     "lastUpdated": "2026-04-09"
+  },
+  {
+    "clientName": "Kraken",
+    "slug": "kraken",
+    "lastUpdated": "2026-04-17"
   }
 ]

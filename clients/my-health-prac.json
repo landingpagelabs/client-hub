@@ -5,7 +5,7 @@
   "clientLogo": null,
   "pinHash": "0a21eba82c64bee6dbfec311325807982ced3a2ec757d5aabdf98ee524494581",
   "lastUpdated": "2026-04-28",
-  "note": "When viewing funnel pages please ensure you view them via the Webflow staging link. This is because we have split test software set up, and we want to keep the data as accurate as possible by filtering out internal page views.",
+  "note": "Best to view the site via the staging links when you can. That keeps your internal page views out of the analytics. Not a hard rule, just best practice.",
   "sections": [
     {
       "heading": "Funnel URLs",

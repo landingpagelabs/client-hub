@@ -1,0 +1,120 @@
+{
+  "clientName": "My Health Prac",
+  "projectType": "Client Hub",
+  "slug": "my-health-prac",
+  "clientLogo": null,
+  "pinHash": "0a21eba82c64bee6dbfec311325807982ced3a2ec757d5aabdf98ee524494581",
+  "lastUpdated": "2026-04-28",
+  "note": "When viewing funnel pages please ensure you view them via the Webflow staging link. This is because we have split test software set up, and we want to keep the data as accurate as possible by filtering out internal page views.",
+  "sections": [
+    {
+      "heading": "Funnel URLs",
+      "type": "funnel",
+      "rows": [
+        {
+          "label": "Landing Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.myhealthprac.com/", "tag": "Live" },
+            { "url": "https://my-health-prac.webflow.io/", "tag": "Staging" }
+          ]
+        },
+        {
+          "label": "Booking Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.myhealthprac.com/booking", "tag": "Live" },
+            { "url": "https://my-health-prac.webflow.io/booking", "tag": "Staging" }
+          ]
+        },
+        {
+          "label": "Congrats Page",
+          "note": null,
+          "links": [
+            { "url": "https://try.myhealthprac.com/congrats", "tag": "Live" },
+            { "url": "https://my-health-prac.webflow.io/congrats", "tag": "Staging" }
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Tracking & Analytics",
+      "type": "links",
+      "rows": [
+        {
+          "label": "Google Analytics",
+          "note": null,
+          "url": "https://analytics.google.com/analytics/web/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com%2Fabout%2Fanalytics%2F#/a389049456p530362011/reports/intelligenthome"
+        },
+        {
+          "label": "Google Tag Manager",
+          "note": null,
+          "url": "https://tagmanager.google.com/?utm_source=marketingplatform.google.com&utm_medium=et&utm_campaign=marketingplatform.google.com#/container/accounts/6346523028/containers/247695399/workspaces/6"
+        },
+        {
+          "label": "Microsoft Clarity",
+          "note": null,
+          "url": "https://clarity.microsoft.com/projects/view/w35osskq9j/dashboard"
+        },
+        {
+          "label": "Webflow",
+          "note": null,
+          "url": "https://webflow.com/dashboard/sites/my-health-prac/general"
+        }
+      ]
+    },
+    {
+      "heading": "CRM & Automation",
+      "type": "links",
+      "rows": [
+        {
+          "label": "Go High Level - Contacts",
+          "note": null,
+          "url": "https://crm.yourhealthbusiness.com/v2/location/nddwbujroEVxlMW9gdZU/contacts/smart_list/All"
+        },
+        {
+          "label": "Zapier - Lead to GHL Workflow",
+          "note": "Form submissions on the LP create a new contact in Go High Level",
+          "url": "https://zapier.com/editor/360654447/published"
+        }
+      ]
+    },
+    {
+      "heading": "Google Analytics Events",
+      "type": "details",
+      "rows": [
+        {
+          "label": "lpl_form_submission (opt-in form submission)",
+          "note": "Marked as Key event in GA4",
+          "value": "Trigger: LPL - Form Submitted"
+        },
+        {
+          "label": "lpl_meeting_scheduled (call booked)",
+          "note": "Marked as Key event in GA4",
+          "value": "Trigger: LPL - Meeting Scheduled"
+        }
+      ]
+    },
+    {
+      "heading": "Meta Pixel Events",
+      "type": "details",
+      "rows": [
+        {
+          "label": "PageView (base pixel)",
+          "note": "Pixel ID: 4352177275051532",
+          "value": "Trigger: Initialization - All Pages"
+        },
+        {
+          "label": "Lead (opt-in form submission)",
+          "note": null,
+          "value": "Trigger: LPL - Form Submitted"
+        },
+        {
+          "label": "Schedule (call booked)",
+          "note": null,
+          "value": "Trigger: LPL - Meeting Scheduled"
+        }
+      ]
+    }
+  ]
+}
